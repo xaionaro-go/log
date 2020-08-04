@@ -60,7 +60,7 @@ type Level = zapcore.Level
 func New(loggingLevelFlag Level) AsyncLogger {
 	return zap.New(zapcore.NewCore(
 		zapcore.NewJSONEncoder(zap.NewDevelopmentEncoderConfig()),
-		zapcore.Lock(os.Stdout),
+		zapcore.Lock(os.Stderr),
 		zap.NewAtomicLevelAt(loggingLevelFlag),
 	)).Sugar()
 }
